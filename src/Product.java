@@ -1,29 +1,21 @@
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Product {
     private String name;
-    private int price;
-    private int count;
     private boolean alreadyBought;
 
-    public Product(String name, int price, int count) {
+    private final Set<Product> productList = new HashSet<>();
+
+    public Product(String name) {
         if (name != null && !name.isEmpty() && !name.isBlank()) {
             this.name = name;
         } else {
             throw new IllegalArgumentException("Заполните карточку продукта полностью");
         }
-        if (count > 0) {
-            this.count = count;
-        } else {
-            throw new IllegalArgumentException("Заполните карточку продукта полностью");
-        }
-        if (price > 0) {
-            this.price = price;
-        } else {
-            throw new IllegalArgumentException("Заполните карточку продукта полностью");
-        }
+    }
 
+    public Set<Product> getProductList() {
+        return productList;
     }
 
     public String getName() {
@@ -33,22 +25,6 @@ public class Product {
     public void setName(String name) {
 
         this.name = name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public boolean isAlreadyBought() {
@@ -84,8 +60,6 @@ public class Product {
     @Override
     public String toString() {
         return "Продукт - " + getName() +
-                "\nЦена - " + getPrice() +
-                "\nВес - " + getPrice() +
                 "\nУже куплен? - " + isAlreadyBought() +
                 "\n";
     }
