@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -10,32 +7,30 @@ public static void main(String[]args) {
     System.out.println("Задание 1");
     System.out.println();
 
-    Set<Product> productList = new HashSet<>();
+    Product bananas = new Product("Бананы");
+    Product kiwi = new Product("Киви");
+    Product orange = new Product("Апельсины");
 
-    Product bananas = new Product("Бананы", 40, 60);
-    Product kiwi = new Product("Киви", 50, 70);
-    Product orange = new Product("Апельсины", 60, 90);
+    bananas.addProduct(bananas.getProductList());
+    kiwi.addProduct(kiwi.getProductList());
+    orange.addProduct(orange.getProductList());
 
-    bananas.addProduct(productList);
-    kiwi.addProduct(productList);
-    orange.addProduct(productList);
-
-    System.out.println(Arrays.toString(productList.toArray()));
     System.out.println();
     System.out.println("Задание 2");
     System.out.println();
 
-    Set<Recipe> recipeList = new HashSet<>();
+    Recipe bananasCocktail = new Recipe("Банановый коктель", 100);
+    Recipe kiwiCocktail = new Recipe("Киви коктель",200);
+    Recipe orangeCocktail = new Recipe("Апельсиновый коктель",50);
 
-    Recipe bananasCocktail = new Recipe("Банановый коктель");
-    Recipe kiwiCocktail = new Recipe("Киви коктель");
-    Recipe orangeCocktail = new Recipe("Апельсиновый коктель");
+    bananasCocktail.addRecipeInSet(bananasCocktail.getRecipeList());
+    kiwiCocktail.addRecipeInSet(kiwiCocktail.getRecipeList());
+    orangeCocktail.addRecipeInSet(orangeCocktail.getRecipeList());
 
-    bananasCocktail.addRecipeInSet(recipeList);
-    kiwiCocktail.addRecipeInSet(recipeList);
-    orangeCocktail.addRecipeInSet(recipeList);
+    bananasCocktail.totalCost();
+    kiwiCocktail.totalCost();
+    orangeCocktail.totalCost();
 
-    System.out.println(Arrays.toString(recipeList.toArray()));
     System.out.println();
     System.out.println("Задание 3");
     System.out.println();
